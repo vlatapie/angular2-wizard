@@ -1,6 +1,6 @@
 {
   "name": "angular2-wizard",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "scripts": {
     "build": "ngc -p tsconfig.json",
     "lint": "tslint src/**/*.ts",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maiyaporn/angular2-wizard"
+    "url": "https://github.com/vlatapie/mso-ng2-wizard"
   },
   "author": {
-    "name": "Maiyaporn Phanich",
-    "email": "p.maiyaporn@gmail.com"
+    "name": "Vincent Latapie",
+    "email": "vlatapie@mesotechnic.com"
   },
   "keywords": [
     "angular2-wizard",
@@ -24,9 +24,9 @@
     "angular2",
     "angular2-component"
   ],
-  "license": "MIT",
+  "license": "MSO",
   "bugs": {
-    "url": "https://github.com/maiyaporn/angular2-wizard/issues"
+    "url": "https://github.com/vlatapie/mso-ng2-wizard"
   },
   "main": "./dist/index.js",
   "dependencies": {
