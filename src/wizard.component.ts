@@ -16,9 +16,9 @@ import { WizardStepComponent } from './wizard-step.component';
       <ng-content></ng-content>
     </div>
     <div class="card-footer" [hidden]="isCompleted">
-        <button type="button" class="btn btn-secondary float-left" style="background: #438EB8; color: #FFFFFF;" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Previous</button>
-        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Next</button>
-        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Done</button>
+        <button type="button" class="btn btn-secondary float-left" style="background: #438EB8; color: #FFFFFF;" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Précédent</button>
+        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Continuer</button>
+        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Confirmer</button>
     </div>
   </div>`
   ,
