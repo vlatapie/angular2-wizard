@@ -3,8 +3,36 @@ import { WizardStepComponent } from './wizard-step.component';
 
 @Component({
   selector: 'form-wizard',
-  styleUrls: ['./wizard.component.scss'],  
-  templateUrl: './wizard.component.html',  
+  template:
+  `<div class="card">
+    <div class="card-header">
+      <ul class="nav nav-justified">
+        <li class="nav-item" *ngFor="let step of steps" [ngClass]="{'active': step.isActive, 'enabled': !step.isDisabled, 'disabled': step.isDisabled, 'completed': isCompleted}">
+          <a (click)="goToStep(step)">{{step.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-block">
+      <ng-content></ng-content>
+    </div>
+    <div class="card-footer" [hidden]="isCompleted">
+        <button type="button" class="btn btn-secondary float-left" style="background: #438EB8; color: #FFFFFF;" (click)="previous()" [hidden]="!hasPrevStep || !activeStep.showPrev">Précédent</button>
+        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="next()" [disabled]="!activeStep.isValid" [hidden]="!hasNextStep || !activeStep.showNext">Continuer</button>
+        <button type="button" class="btn btn-secondary float-right" style="background: #438EB8; color: #FFFFFF;" (click)="complete()" [disabled]="!activeStep.isValid" [hidden]="hasNextStep">Confirmer</button>
+    </div>
+  </div>`
+  ,
+  styles: [
+    '.card { height: 100%; }',
+    '.card-header { background-color: #E0E0E0; color: #58A2EA; padding: 0; font-size: 0.75rem; }',
+    '.card-block { overflow-y: auto; }',
+    '.card-footer { background-color: #fff; border-top: 0 none; }',
+    '.nav-item { padding: 1rem 0rem; border-bottom: 0.5rem solid #ccc; }',
+    '.active { font-weight: bold; #1976D2: black; border-bottom-color: #1976D2 !important; }',
+    '.enabled { cursor: pointer; border-bottom-color: rgb(88, 162, 234); }',
+    '.disabled { color: #ccc; }',
+    '.completed { cursor: default; }'
+  ]
 })
 export class WizardComponent implements AfterContentInit {
   @ContentChildren(WizardStepComponent)
